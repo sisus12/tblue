@@ -27,8 +27,8 @@ RUN /tmp/build.sh && \
     sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/user.conf && \
     sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/system.conf && \ 
     git clone https://github.com/CachyOS/CachyOS-Settings.git && \
-    cp -r CachyOS-Settings/etc /etc/ && \
-    cp -r CachyOS-Settings/usr/bin/ /usr/bin/ && \
+    cp -r CachyOS-Settings/etc/* /etc/ && \
+    cp -r CachyOS-Settings/usr/bin/* /usr/bin/ && \
     find /etc/yum.repos.d/. -type f -not \( -name 'fedora.repo' -or -name 'fedora-updates.repo' \) -delete && \
     rm -rf /tmp/* /var/* && \
     ostree container commit && \
