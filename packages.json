@@ -15,7 +15,7 @@
 		"fastfetch",
                 "gstreamer1-plugin-libav",
                 "gstreamer1-plugins-bad-free-extras",
-                "gstreamer1-vaapi"
+                "gstreamer1-vaapi",
                 "mesa-vdpau-drivers-freeworld",
 	        "ffmpeg", 
 		"gstreamer1-plugin-openh264",
