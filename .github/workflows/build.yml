@@ -81,9 +81,9 @@ jobs:
           tags: |
             ${{ steps.generate-tags.outputs.alias_tags }}
           build-args: |
-            IMAGE_NAME="${{ env.IMAGE_BASE_NAME }}"
-            IMAGE_FLAVOR="${{ env.IMAGE_FLAVOR }}"
-            FEDORA_MAJOR_VERSION="${{ env.IMAGE_VERSION }}"
+            IMAGE_NAME=${{ env.IMAGE_BASE_NAME }}
+            IMAGE_FLAVOR=${{ env.IMAGE_FLAVOR }}
+            FEDORA_MAJOR_VERSION=${{ env.IMAGE_VERSION }}
           labels: ${{ steps.meta.outputs.labels }}
           oci: false
           extra-args: |
