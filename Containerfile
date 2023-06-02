@@ -24,6 +24,7 @@ RUN /tmp/build.sh && \
     systemctl enable rpm-ostree-countme.service && \
     systemctl enable tlp.service && \
     systemctl disable NetworkManager-wait-online.service && \
+    asusctl -c 85 && \
     sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/user.conf && \
     sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/system.conf && \ 
     git clone https://github.com/CachyOS/CachyOS-Settings.git && \
