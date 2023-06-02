@@ -25,7 +25,8 @@
 		"mozilla-openh264",
 		"openh264",
 		"asusctl",
-		"duperemove"
+		"duperemove",
+		"tlp"
             ]
         },
         "exclude": {
