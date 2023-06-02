@@ -19,7 +19,7 @@ RUN wget https://copr.fedorainfracloud.org/coprs/lukenukem/asus-linux/repo/fedor
 
 RUN wget https://copr.fedorainfracloud.org/coprs/gloriouseggroll/nobara/repo/fedora-"${FEDORA_MAJOR_VERSION}"/gloriouseggroll-nobara-fedora-"${FEDORA_MAJOR_VERSION}".repo -O /etc/yum.repos.d/nobara.repo
 RUN rpm-ostree cliwrap install-to-root /
-RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-devel-matched kernel-modules-extra kernel-modules-core kernel-uki-virt
+RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-devel-matched kernel-modules-extra kernel-modules-core
 RUN rpm-ostree override replace --experimental kkernel kernel-core kernel-modules kernel-devel-matched kernel-modules-extra kernel-modules-core kernel-uki-virt --from repo=copr:copr.fedorainfracloud.org:gloriouseggroll:nobara
 
 
