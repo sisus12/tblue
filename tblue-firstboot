@@ -11,11 +11,10 @@ sudo systemctl enable fstrim.timer
 sudo wget https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts -O /etc/hosts 
 asusctl -c 85 
 sudo tpl start
+cp -n /etc/justfile "$HOME"/.justfile
+rpm-ostree kargs --append="zswap.enabled=1 elevator=none mitigations=off transparent_hugepage=always nowatchdog processor.ignore_ppc=1 amdgpu.ppfeaturemask=0xffffffff ec_sys.write_support=1"
 mkdir -p "$HOME"/.config/tblue/
 touch "$HOME"/.config/tblue/firstboot-done
-cp -n /etc/justfile "$HOME"/.justfile
-
-rpm-ostree kargs --reboot --append="zswap.enabled=1 elevator=none mitigations=off transparent_hugepage=always nowatchdog processor.ignore_ppc=1 amdgpu.ppfeaturemask=0xffffffff ec_sys.write_support=1"
-
+systemctl reboot
 
 
