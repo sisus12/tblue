@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if test -e "$HOME"/.config/ublue/firstboot-done; then
+    echo "Already ran"
+    exit 0
+fi
+
 sudo sed -i 's/compress=zstd:1/x-systemd.device-timeout=0,ssd,noatime,space_cache,commit=120,compress=zstd,discard=async/' /etc/fstab
 sudo systemctl daemon-reload
 sudo systemctl enable fstrim.timer
