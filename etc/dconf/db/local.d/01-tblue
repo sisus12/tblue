@@ -1,0 +1,41 @@
+[org/gnome/shell] 
+favorite-apps = ['io.gitlab.librewolf-community', 'org.gnome.Nautilus.desktop', 'org.gnome.Console.desktop', 'org.gnome.Software.desktop']
+enabled-extensions = ['appindicatorsupport@rgcjonas.gmail.com', 'gsconnect@andyholmes.github.io']
+
+[org/gnome/desktop/interface]
+enable-hot-corners=false
+clock-show-weekday=true
+font-antialiasing='rgba'
+
+[org/gnome/desktop/sound]
+allow-volume-above-100-percent=false
+
+[org/gnome/desktop/wm/preferences]
+button-layout=':minimize,maximize,close'
+num-workspaces='4'
+
+[org/gnome/desktop/peripherals/touchpad]
+tap-to-click=true
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Control><Alt>t'
+command='kgx'
+name='gnome-console'
+
+[org/gnome/software]
+allow-updates=false
+download-updates=false
+download-updates-notify=false
+first-run=false
+
+[org/gnome/epiphany]
+content-filters = ['https://gitlab.com/eyeo/filterlists/contentblockerlists/-/raw/master/easylist+easylistitaly-minified+exceptionrules-minimal+safari15.json', 'https://gitlab.com/eyeo/filterlists/contentblockerlists/-/raw/master/easylist_content_blocker.json']
+default-search-engine = 'Searx'
+search-engine-providers = [{'name': <'Searx'>, 'url': <'https://searx.be/search?q=%s&language=all&time_range'>, 'bang': <'!s'>}]
+
+[org/gnome/epiphany/web]
+hardware-acceleration-policy = 'always'
+
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
+home=['<Super>e']

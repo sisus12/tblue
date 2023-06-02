@@ -1,0 +1,70 @@
+{
+    "all": {
+        "include": {
+            "all": [
+                "gnome-shell-extension-appindicator",
+                "gnome-shell-extension-gsconnect",
+                "nautilus-gsconnect",
+                "libgda",
+                "libgda-sqlite",
+                "libratbag-ratbagd",
+                "python3-pip",
+                "xprop",
+		"gnome-console",
+		"lm_sensors",
+		"fastfetch",
+                "gstreamer1-plugin-libav",
+                "gstreamer1-plugins-bad-free-extras",
+                "gstreamer1-vaapi"
+                "mesa-vdpau-drivers-freeworld",
+	        "ffmpeg", 
+		"gstreamer1-plugin-openh264",
+	        "gstreamer1-plugins-bad-freeworld",
+		"gstreamer1-plugins-ugly",
+		"libavcodec-freeworld",
+		"mozilla-openh264",
+		"openh264",
+		"asusctl",
+		"duperemove"
+            ]
+        },
+        "exclude": {
+            "all": [
+                "firefox",
+                "firefox-langpacks",
+                "gnome-tour",
+		"yelp",
+		"gnome-terminal",
+		"gnome-terminal-nautilus",
+		"gnome-system-monitor",
+		"toolbox",
+		"mesa-vdpau-drivers",
+		"gnome-tweaks",
+		"gnome-shell-extension-background-logo",
+		"gnome-classic-session",
+		"gnome-session-xsession",
+		"gnome-themes-extra",
+		"gnome-initial-setup",
+		"gnome-user-docs",
+		"fedora-bookmarks",
+	        "fedora-chromium-config",
+		"fedora-flathub-remote",
+		"fedora-workstation-repositories",
+		"gnome-shell-extension-launch-new-instance",
+		"gnome-shell-extension-apps-menu",
+                "gnome-shell-extension-places-menu",
+                "gnome-shell-extension-window-list",
+                "podman-docker",
+                "tmux"
+            ]
+        }
+    },
+    "38": {
+        "include": {
+            "all": []
+        },
+        "exclude": {
+            "all": []
+        }
+    }
+}

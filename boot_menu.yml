@@ -1,0 +1,5 @@
+ublue_variants:
+  - label: sisus/tblue
+    ks: /kickstart/ublue-os.ks
+    flavors:
+      - label: tblue

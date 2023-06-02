@@ -1,0 +1,135 @@
+title: Welcome to Tblue
+properties:
+  mode: "run-on-change"
+screens:
+  first-screen:
+    source: yafti.screen.title
+    values:
+      title: "Welcome to Tblue"
+      icon: "/path/to/icon"
+      description: |
+        Pick some applications to get started
+  can-we-modify-your-flatpaks:
+    source: yafti.screen.consent
+    values:
+      title: Welcome, Traveler
+      condition:
+        run: flatpak remotes --system | grep fedora
+      description: |
+        WARNING: This will modify your Flatpaks if you are rebasing! If you do not want to do this exit the installer.
+      actions:
+        - run: /usr/lib/fedora-third-party/fedora-third-party-opt-out
+        - run: /usr/bin/fedora-third-party disable
+        - run: flatpak remote-delete fedora --force
+        - run: flatpak remove --system --noninteractive --all
+        - run: flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
+  applications:
+    source: yafti.screen.package
+    values:
+      title: Application Installation
+      show_terminal: true
+      package_manager: yafti.plugin.flatpak
+      groups:
+        Core:
+          description: Core Applications
+          default: true
+          packages:
+          - Backup: org.gnome.DejaDup
+          - Calculator: org.gnome.Calculator
+          - Calendar: org.gnome.Calendar
+          - Characters: org.gnome.Characters
+          - Connections: org.gnome.Connections
+          - Contacts: org.gnome.Contacts
+          - Document Viewer: org.gnome.Evince
+          - Extensions Manager: com.mattjakeman.ExtensionManager
+          - Fedora Media Writer: org.fedoraproject.MediaWriter
+          - Gnome Web: org.gnome.Epiphany
+          - Flatseal Permissions Manager: com.github.tchx84.Flatseal
+          - Logs: org.gnome.Logs
+          - Maps: org.gnome.Maps
+          - Nautilus Preview: org.gnome.NautilusPreviewer
+          - Text Editor: org.gnome.TextEditor
+          - Weather: org.gnome.Weather
+          - Disk Usage Analyzer: org.gnome.baobab
+          - Clocks: org.gnome.clocks
+          - Picture Viewer: org.gnome.eog
+          - Font Viewer: org.gnome.font-viewer
+          - Font Downloader: org.gustavoperedo.FontDownloader
+          - Videos: org.gnome.Totem
+          - Photos: org.gnome.Photos
+          - Music: org.gnome.Music
+        Web Browsers:
+          description: Additional browsers
+          default: false
+          packages:
+          - Mullvad: net.mullvad.MullvadBrowser
+          - Firefox: org.mozilla.firefox
+          - Brave: com.brave.Browser
+          - Google Chrome: com.google.Chrome
+          - LibreWolf: io.gitlab.librewolf-community
+          - Opera: com.opera.Opera
+        Gaming:
+          description: Gaming
+          default: false
+          packages:
+          - TLauncher: ch.tlaun.TL
+          - Bottles: com.usebottles.bottles
+          - Yuzu: org.yuzu_emu.yuzu
+          - Discord: com.discordapp.Discord
+          - Games: org.gnome.Games
+          - Heroic Games Launcher: com.heroicgameslauncher.hgl
+          - MangoHUD: org.freedesktop.Platform.VulkanLayer.MangoHud//22.08
+          - Steam: com.valvesoftware.Steam
+          - Gamescope for Steam: com.valvesoftware.Steam.Utility.gamescope
+          - Proton Updater for Steam: net.davidotek.pupgui2
+        Office:
+          description: Bow to Capitalism
+          default: false
+          packages:
+          - LibreOffice: org.libreoffice.LibreOffice
+          - Obsidian: md.obsidian.Obsidian
+          - OnlyOffice: org.onlyoffice.desktopeditors
+          - Standard Notes: org.standardnotes.standardnotes
+          - Thunderbird Email: org.mozilla.Thunderbird
+        Streaming:
+          description: Stream to the Internet
+          default: false
+          packages:
+          - OBS Studio: com.obsproject.Studio
+          - VkCapture for OBS: com.obsproject.Studio.OBSVkCapture 
+          - Gstreamer for OBS: com.obsproject.Studio.Plugin.Gstreamer
+          - Gstreamer VAAPI for OBS: com.obsproject.Studio.Plugin.GStreamerVaapi
+          - Boatswain for Streamdeck: com.feaneron.Boatswain
+        Other:
+          description: Other Utilities
+          default: false
+          packages:
+          - Authenticator: com.belmoussaoui.Authenticator
+          - Endeavour: org.gnome.Todo
+          - Pitivi: org.pitivi.Pitivi
+          - Secrets: org.gnome.World.Secrets
+          - Break Timer: org.gnome.BreakTimer
+          - Key Rack : app.drey.KeyRack
+          - FreeTube: io.freetubeapp.FreeTube
+          - Spotube: com.github.KRTirtho.Spotube
+          - Github Desktop: io.github.shiftey.Desktop
+          - Gdevelop: io.gdevelop.ide
+          - Dialect: app.drey.Dialect
+          - News Flash: com.gitlab.newsflash
+          - Electron Mail: com.github.vladimiry.ElectronMail
+          - Gdm Settings: io.github.realmazharhussain.GdmSettings
+          - Text Pieces: com.github.liferooter.textpieces
+  final-screen:
+    source: yafti.screen.title
+    values:
+      title: "All done!"
+      icon: "/path/to/icon"
+      links:
+        - "Install More Applications": 
+            run: /usr/bin/gnome-software
+        - "Website":
+            run: /usr/bin/xdg-open https://ublue.it
+        - "Join the Discord Community":
+            run: /usr/bin/xdg-open https://discord.gg/XjG48C7VHx 
+      description: |
+        Thanks for trying TBlue, we hope you enjoy it!
