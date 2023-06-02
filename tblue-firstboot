@@ -4,7 +4,8 @@ sudo sed -i 's/compress=zstd:1/x-systemd.device-timeout=0,ssd,noatime,space_cach
 sudo systemctl daemon-reload
 sudo systemctl enable fstrim.timer
 sudo wget https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts -O /etc/hosts 
-
+asusctl -c 85 
+tpl start
 cp -n /etc/justfile "$HOME"/.justfile
 
 rpm-ostree kargs --reboot --append="zswap.enabled=1 elevator=none mitigations=off transparent_hugepage=always nowatchdog processor.ignore_ppc=1 amdgpu.ppfeaturemask=0xffffffff ec_sys.write_support=1"
