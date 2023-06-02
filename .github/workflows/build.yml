@@ -35,7 +35,7 @@ jobs:
         run: |
           # Generate a timestamp for creating an image version history
           TIMESTAMP="$(date +%Y%m%d)"
-          MAJOR_VERSION="${{ env.IMAGE_BASE_NAME }}"
+          MAJOR_VERSION="${{ env.IMAGE_VERSION }}"
           COMMIT_TAGS=()
           BUILD_TAGS=()
           # Have tags for tracking builds during pull request
@@ -81,13 +81,13 @@ jobs:
           tags: |
             ${{ steps.generate-tags.outputs.alias_tags }}
           build-args: |
-            IMAGE_NAME=${{ env.IMAGE_BASE_NAME }}
-            IMAGE_FLAVOR=${{ env.IMAGE_FLAVOR }}
-            FEDORA_MAJOR_VERSION=${{ env.IMAGE_VERSION }}
+            IMAGE_NAME="${{ env.IMAGE_BASE_NAME }}"
+            IMAGE_FLAVOR="${{ env.IMAGE_FLAVOR }}"
+            FEDORA_MAJOR_VERSION="${{ env.IMAGE_VERSION }}"
           labels: ${{ steps.meta.outputs.labels }}
           oci: false
           extra-args: |
-            --target=${{ env.IMAGE_FLAVOR }}
+            --target=${{ env.IMAGE_BASE_NAME }}
 
       # Workaround bug where capital letters in your GitHub username make it impossible to push to GHCR.
       # https://github.com/macbre/push-to-ghcr/issues/12
